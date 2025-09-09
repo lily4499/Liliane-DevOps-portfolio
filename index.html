@@ -1,0 +1,415 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liliane Konissi — DevOps Engineer Portfolio</title>
+  <meta name="description" content="DevOps Engineer portfolio showcasing skills, projects, blog posts, and contact links." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #111a2b;
+      --text: #e8eef8;
+      --muted: #9fb0c7;
+      --brand: #5aa9ff;
+      --chip: #1b2740;
+      --accent: #8be9c7;
+      --danger: #ff7b7b;
+      --ok: #8ff7a7;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(8px);
+      background: rgba(11,18,32,.6);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav { max-width: 1100px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; gap: 18px; }
+    .nav .brand { font-weight: 800; letter-spacing:.3px; }
+    .nav .spacer { flex: 1; }
+    .nav a { padding: 8px 10px; border-radius: 10px; }
+    .nav a:hover { background: rgba(255,255,255,.06); text-decoration: none; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px 80px; }
+
+    .hero { display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; align-items: center; }
+    .card { background: var(--panel); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card.pad { padding: 22px; }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background: var(--chip); color: var(--muted); font-size: 12px; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.1); background: #1a2440; color: #fff; font-weight:600; box-shadow: var(--shadow); }
+    .btn:hover { background:#213056; text-decoration:none; }
+    .btn.primary { background: linear-gradient(135deg, #2f77ff, #6bb1ff); }
+    .btn.primary:hover { filter: brightness(1.05); }
+
+    h1 { font-size: 38px; margin: 0 0 6px; }
+    h2 { font-size: 28px; margin: 12px 0 10px; }
+    h3 { font-size: 20px; margin: 10px 0 6px; }
+    p { color: var(--muted); line-height: 1.65; }
+    section { margin-top: 36px; }
+
+    .grid { display: grid; gap: 16px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .chips { display:flex; flex-wrap:wrap; gap: 8px; margin-top: 10px; }
+    .chip { background: var(--chip); color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 12px; }
+
+    .proj { position: relative; overflow: hidden; }
+    .proj .thumb { height: 140px; background: linear-gradient(120deg, rgba(90,169,255,.25), rgba(139,233,199,.18)); border-bottom: 1px solid rgba(255,255,255,.06); }
+    .proj .body { padding: 16px; }
+    .proj .tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+    .tag { font-size: 11px; background: rgba(255,255,255,.06); color: #cfe0ff; padding: 4px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,.08); }
+
+    .list { display:grid; gap: 12px; }
+    .list .item { display:flex; gap: 10px; align-items:center; padding: 12px; border-radius: 12px; border:1px solid rgba(255,255,255,.06); background: #111a2b; }
+    .list .item .dot { width:10px; height:10px; border-radius:50%; background: var(--brand); }
+
+    footer { margin-top: 60px; padding: 30px 0 60px; border-top: 1px solid rgba(255,255,255,.06); color: var(--muted); text-align:center; }
+
+    .two { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid.cols-3 { grid-template-columns: 1fr 1fr; }
+      .grid.cols-4 { grid-template-columns: 1fr 1fr; }
+      .two { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="brand">LK · DevOps</div>
+      <div class="spacer"></div>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="#links">Links</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero / About -->
+    <section id="about" class="hero">
+      <div class="card pad">
+        <span class="pill">DevOps Engineer • Cloud • Automation</span>
+        <h1>Hi, I'm Liliane Konissi</h1>
+        <p>
+          I build reliable, automated delivery pipelines and cloud infrastructure.
+          I love turning manual runbooks into clean, repeatable workflows using CI/CD,
+          containers, and Infrastructure as Code. This portfolio highlights hands‑on
+          projects across AWS, Azure, GCP, Kubernetes, Jenkins, Terraform, Prometheus/Grafana, and ELK.
+        </p>
+        <div class="chips">
+          <span class="chip">Glen Burnie, MD, USA</span>
+          <span class="chip">Available for full‑time</span>
+          <span class="chip">Open to freelance</span>
+        </div>
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <aside class="card pad">
+        <h3>Fast Highlights</h3>
+        <div class="list">
+          <div class="item"><div class="dot"></div> Jenkins → Docker → K8s pipelines</div>
+          <div class="item"><div class="dot" style="background:var(--accent);"></div> IaC with Terraform & Ansible</div>
+          <div class="item"><div class="dot" style="background:var(--ok);"></div> Monitoring with Prometheus/Grafana</div>
+          <div class="item"><div class="dot" style="background:var(--danger);"></div> Logging with ELK (EFK)</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills & Tools</h2>
+      <div class="grid cols-4">
+        <div class="card pad">
+          <h3>Cloud</h3>
+          <p>AWS, Azure, GCP, DigitalOcean</p>
+          <div class="chips">
+            <span class="chip">VPC / VNets</span>
+            <span class="chip">IAM</span>
+            <span class="chip">EKS / AKS / GKE</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>Containers & Orchestration</h3>
+          <p>Docker, Kubernetes, Helm, OpenShift</p>
+          <div class="chips">
+            <span class="chip">Images</span>
+            <span class="chip">Ingress</span>
+            <span class="chip">HPA</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>CI/CD</h3>
+          <p>Jenkins, GitHub Actions, GitLab CI, Argo CD</p>
+          <div class="chips">
+            <span class="chip">Pipelines</span>
+            <span class="chip">GitOps</span>
+            <span class="chip">Webhooks</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>Infrastructure as Code</h3>
+          <p>Terraform, Ansible</p>
+          <div class="chips">
+            <span class="chip">Modules</span>
+            <span class="chip">Playbooks</span>
+            <span class="chip">State mgmt</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>Monitoring & Logging</h3>
+          <p>Prometheus, Grafana, ELK/EFK</p>
+          <div class="chips">
+            <span class="chip">Dashboards</span>
+            <span class="chip">Alerts</span>
+            <span class="chip">Tracing</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>Scripting & Languages</h3>
+          <p>Python, Bash, YAML/JSON</p>
+          <div class="chips">
+            <span class="chip">Automation</span>
+            <span class="chip">CLI</span>
+            <span class="chip">APIs</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>Version Control & Ops</h3>
+          <p>Git, GitHub, Branching, PRs</p>
+          <div class="chips">
+            <span class="chip">Code review</span>
+            <span class="chip">Releases</span>
+            <span class="chip">SemVer</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>OS & Web Servers</h3>
+          <p>Linux, Nginx, Apache</p>
+          <div class="chips">
+            <span class="chip">Systemd</span>
+            <span class="chip">SSL/TLS</span>
+            <span class="chip">Hardening</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects / Case Studies</h2>
+      <p>9 simple, end‑to‑end demos that together cover the core DevOps toolchain. Each card includes a repo link, steps, and outcomes.</p>
+      <div class="grid cols-3">
+        <!-- 1 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>1) Dockerize a Node.js App</h3>
+            <p>Containerize a Node app with a minimal Dockerfile and run it locally.</p>
+            <div class="tags">
+              <span class="tag">Docker</span><span class="tag">Node.js</span><span class="tag">Makefile</span>
+            </div>
+            <p><a href="#" target="_blank">GitHub Repo</a> · <a href="#" target="_blank">README</a></p>
+          </div>
+        </article>
+        <!-- 2 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>2) Jenkins CI Pipeline</h3>
+            <p>Build, test, and push Docker images on each commit with Jenkinsfile.</p>
+            <div class="tags">
+              <span class="tag">Jenkins</span><span class="tag">Docker</span><span class="tag">Git</span>
+            </div>
+            <p><a href="#" target="_blank">GitHub Repo</a> · <a href="#" target="_blank">Pipeline</a></p>
+          </div>
+        </article>
+        <!-- 3 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>3) Kubernetes Basics</h3>
+            <p>Deploy the image to Kubernetes with a Deployment + Service + Ingress.</p>
+            <div class="tags">
+              <span class="tag">Kubernetes</span><span class="tag">Ingress</span><span class="tag">YAML</span>
+            </div>
+            <p><a href="#" target="_blank">Manifests</a> · <a href="#" target="_blank">Screenshots</a></p>
+          </div>
+        </article>
+        <!-- 4 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>4) Helm Chart</h3>
+            <p>Package the app as a reusable Helm chart with values for dev/prod.</p>
+            <div class="tags">
+              <span class="tag">Helm</span><span class="tag">Charts</span><span class="tag">Templating</span>
+            </div>
+            <p><a href="#" target="_blank">Chart Repo</a> · <a href="#" target="_blank">NOTES.txt</a></p>
+          </div>
+        </article>
+        <!-- 5 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>5) Terraform EKS</h3>
+            <p>Provision an Amazon EKS cluster with Terraform modules and remote state.</p>
+            <div class="tags">
+              <span class="tag">Terraform</span><span class="tag">AWS</span><span class="tag">EKS</span>
+            </div>
+            <p><a href="#" target="_blank">Terraform</a> · <a href="#" target="_blank">Architecture</a></p>
+          </div>
+        </article>
+        <!-- 6 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>6) GitOps with Argo CD</h3>
+            <p>Sync Kubernetes manifests from Git to cluster and enable auto‑rollbacks.</p>
+            <div class="tags">
+              <span class="tag">Argo CD</span><span class="tag">GitOps</span><span class="tag">K8s</span>
+            </div>
+            <p><a href="#" target="_blank">App of Apps</a> · <a href="#" target="_blank">Guide</a></p>
+          </div>
+        </article>
+        <!-- 7 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>7) Prometheus & Grafana</h3>
+            <p>Monitor app and cluster metrics with dashboards and alert rules.</p>
+            <div class="tags">
+              <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">Alerts</span>
+            </div>
+            <p><a href="#" target="_blank">Dashboards</a> · <a href="#" target="_blank">Alerting</a></p>
+          </div>
+        </article>
+        <!-- 8 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>8) Centralized Logging</h3>
+            <p>Aggregate logs with Elastic (or EFK) and visualize request traces.</p>
+            <div class="tags">
+              <span class="tag">ELK / EFK</span><span class="tag">Fluentd</span><span class="tag">Kibana</span>
+            </div>
+            <p><a href="#" target="_blank">Compose/Helm</a> · <a href="#" target="_blank">Kibana</a></p>
+          </div>
+        </article>
+        <!-- 9 -->
+        <article class="card proj">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>9) Multi‑Cloud Deploy</h3>
+            <p>AKS + EKS + GKE unified workflow using Terraform and Helm values.</p>
+            <div class="tags">
+              <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span>
+            </div>
+            <p><a href="#" target="_blank">Repos</a> · <a href="#" target="_blank">Screenshots</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Blog / Docs -->
+    <section id="blog">
+      <h2>Blog / Documentation</h2>
+      <div class="two">
+        <div class="card pad">
+          <h3>Latest Posts</h3>
+          <ul>
+            <li><a href="#" target="_blank">From Dockerfile to Kubernetes: a minimal path</a></li>
+            <li><a href="#" target="_blank">Terraform remote state with S3 + DynamoDB</a></li>
+            <li><a href="#" target="_blank">Helm tips: values, templating, NOTES.txt</a></li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3>Project Docs</h3>
+          <p>Each repo ships with a comprehensive README including architecture diagrams, CLI steps, and troubleshooting.</p>
+          <p><a href="#projects">Jump to projects</a> · <a href="#" target="_blank">All READMEs</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Links -->
+    <section id="links">
+      <h2>Portfolio Links</h2>
+      <div class="grid cols-3">
+        <div class="card pad">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/lily4499" target="_blank">github.com/lily4499</a></p>
+        </div>
+        <div class="card pad">
+          <h3>LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/in/liliane-konissi" target="_blank">linkedin.com/in/liliane-konissi</a></p>
+        </div>
+        <div class="card pad">
+          <h3>YouTube</h3>
+          <p><a href="#" target="_blank">Tutorials & demos</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Download -->
+    <section id="resume">
+      <h2>Resume Download</h2>
+      <div class="card pad">
+        <p>You can download my latest DevOps resume here.</p>
+        <a class="btn primary" href="./Liliane_Konissi_DevOps_Resume.pdf" download>Download Resume (PDF)</a>
+        <p style="margin-top:8px; font-size:12px; color:#9fb0c7;">(Place your PDF in the same folder and keep this filename.)</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="two">
+        <div class="card pad">
+          <h3>Let’s build something reliable</h3>
+          <p>Email: <a href="mailto:konissili@gmail.com">konissili@gmail.com</a><br>
+             GitHub: <a href="https://github.com/lily4499" target="_blank">@lily4499</a><br>
+             Location: Glen Burnie, Maryland, USA
+          </p>
+          <p>Prefer scheduling? Add a note and your timezone—I'll reply quickly.</p>
+        </div>
+        <form class="card pad" onsubmit="event.preventDefault(); alert('Thanks! I\\'ll reply to your message shortly.');">
+          <h3>Quick Message</h3>
+          <div style="display:grid; gap:10px;">
+            <input required placeholder="Your name" style="padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0e1526; color:#fff;" />
+            <input required type="email" placeholder="Your email" style="padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0e1526; color:#fff;" />
+            <textarea required rows="4" placeholder="Your message" style="padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0e1526; color:#fff; resize:vertical;"></textarea>
+            <button class="btn primary" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Liliane Konissi — DevOps Engineer Portfolio
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
